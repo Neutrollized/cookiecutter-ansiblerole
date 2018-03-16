@@ -24,6 +24,8 @@ kitchen-ansiblepush
 
 [pywinrm](https://pypi.python.org/pypi/pywinrm)
 
+If you want to see how the Windows testing works, check out my other [repo](https://github.com/Neutrollized/test-kitchen_windows-ansible-inspec)
+
 ### How to use
 
 `cookiecutter https://github.com/Neutrollized/cookiecutter-ansiblerole`
