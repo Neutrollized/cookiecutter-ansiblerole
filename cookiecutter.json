@@ -1,0 +1,7 @@
+{
+  "repo_name": "myrole",
+  "os_family": "redhat",
+  "maintainer": "Glen Yu",
+  "email": "glen.yu@gmail.com",
+  "license": "MIT"
+}

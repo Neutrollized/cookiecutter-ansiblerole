@@ -1,0 +1,10 @@
+---
+{% if (cookiecutter.os_family == 'redhat') or (cookiecutter.os_family == 'debian') -%}
+- hosts: localhost
+  remote_user: root
+{% elif cookiecutter.os_family == 'windows' -%}
+- hosts: kitchen-windows
+{% endif %}
+
+  roles:
+  - role: {{ cookiecutter.repo_name }}

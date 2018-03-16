@@ -1,0 +1,85 @@
+---
+driver:
+  name: vagrant
+  gui: false
+
+platforms:
+{% if cookiecutter.os_family == 'redhat' -%}
+  - name: rhel
+    driver_config:
+      box: rhel
+      box_url: ## YOUR VAGRANT BOX DOWNLOAD URL HERE ###
+      box_download_insecure: true
+      communicator: ssh
+      username: vagrant
+      password: vagrant
+      provision: true
+{% elif cookiecutter.os_family == 'debian' -%}
+  - name: debian
+    driver_config:
+      box: debian
+      box_url: ## YOUR VAGRANT BOX DOWNLOAD URL HERE ###
+      box_download_insecure: true
+      communicator: ssh
+      username: vagrant
+      password: vagrant
+      provision: true
+{% elif cookiecutter.os_family == 'windows' -%}
+  - name: win2012r2
+    driver_config:
+      box: win2012r2
+      box_url: ## YOUR VAGRANT BOX DOWNLOAD URL HERE ###
+      box_download_insecure: true
+      communicator: winrm
+      username: packer
+      password: packer
+      network:
+        - ["forwarded_port", {guest: 5986, host: 55986}]
+      port: 55986
+      customize:
+        cpus: 2
+        memory: 4096
+      provision: false
+{% endif %}
+
+transport:
+{% if (cookiecutter.os_family == 'redhat') or (cookiecutter.os_family == 'debian') -%}
+  name: ssh
+{% elif cookiecutter.os_family == 'windows' -%}
+  name: winrm
+  winrm_transport: negotiate
+{% endif %}
+
+provisioner:
+{% if (cookiecutter.os_family == 'redhat') or (cookiecutter.os_family == 'debian') -%}
+  name: ansible_playbook
+  hosts: localhost
+  ansible_connection: local
+  ansible_verbose: true
+  ansible_diff: true
+  ansible_verbosity: 3
+  require_chef_for_busser: false
+{% elif cookiecutter.os_family == 'windows' -%}
+  name: ansible_push
+  ansible_config: test/ansible.cfg
+  playbook: test/integration/default/default.yml
+  verbose: vvv
+  mygroup: kitchen-windows
+  diff: true
+  host_key_checking: false
+  ansible_connection: winrm
+  ansible_port: 55986
+  generate_inv: true
+  use_instance_name: false
+  chef_bootstrap_url: nil
+{% endif %}
+
+verifier:
+  name: inspec
+  inspec_tests:
+    - test/integration/default/controls/{{ cookiecutter.repo_name }}_spec.rb
+  format: junit
+  output: "%{platform}_%{suite}_inspec.xml"
+
+suites:
+  - name: default
