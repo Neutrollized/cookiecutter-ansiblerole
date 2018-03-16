@@ -26,7 +26,15 @@ PyPI
 
 ### HOW-TO
 
-cookiecutter https://github.com/Neutrollized/cookiecutter-ansiblerole
+`cookiecutter https://github.com/Neutrollized/cookiecutter-ansiblerole`
+
+```
+repo_name [myrole]:
+os_family [redhat]:
+maintainer [Glen Yu]:
+email [glen.yu@gmail.com]:
+license [MIT]:
+```
 
 #### Notes
 
