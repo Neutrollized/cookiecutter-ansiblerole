@@ -6,7 +6,7 @@ cookiecutter Ansible role template with test-kitchen config for Linux (Red Hat) 
 
 [cookiecutter](https://github.com/audreyr/cookiecutter)
 
-[Python](https://www.python.org/downloads/) required to run the post-Python script hook
+[Python](https://www.python.org/downloads/) (required to run the post-Python script hook)
 
 ### For test-kitchen
 
