@@ -1,8 +1,10 @@
 # cookiecutter-ansiblerole
 
-[cookiecutter](https://github.com/audreyr/cookiecutter) Ansible role template with test-kitchen config for Linux (Red Hat) and Windows
+cookiecutter Ansible role template with test-kitchen config for Linux (Red Hat) and Windows.  This is a modified/updated from one I use at work, but contains extra functionality (namely Windows Ansible testing with test-kitchen) that I've added as well as updates to the template to allow for Windows Ansible role...uh...stuff.
 
 ## Requirements
+
+[cookiecutter](https://github.com/audreyr/cookiecutter)
 
 [Python](https://www.python.org/downloads/) required to run the post-Python script hook
 
