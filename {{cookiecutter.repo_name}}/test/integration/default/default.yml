@@ -5,6 +5,5 @@
 {% elif cookiecutter.os_family == 'windows' -%}
 - hosts: kitchen-windows
 {% endif %}
-
   roles:
   - role: {{ cookiecutter.repo_name }}
