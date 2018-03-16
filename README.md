@@ -9,13 +9,19 @@
 ### For test-kitchen
 
 GEMs
+
 inspec
+
 test-kitchen
+
 kitchen-vagrant
+
 kitchen-ansible
+
 kitchen-ansiblepush
 
 PyPI
+
 [pywinrm](https://pypi.python.org/pypi/pywinrm)
 
 ### Documentation
