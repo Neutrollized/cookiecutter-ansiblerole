@@ -18,12 +18,13 @@ kitchen-vagrant
 
 kitchen-ansible
 
-kitchen-ansiblepush
+#### Additional packages needed for Windows testing
 
+kitchen-ansiblepush
 
 [pywinrm](https://pypi.python.org/pypi/pywinrm)
 
-### HOW-TO
+### How to use
 
 `cookiecutter https://github.com/Neutrollized/cookiecutter-ansiblerole`
 
