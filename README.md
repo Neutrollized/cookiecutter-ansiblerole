@@ -10,8 +10,6 @@ cookiecutter Ansible role template with test-kitchen config for Linux (Red Hat) 
 
 ### For test-kitchen
 
-GEMs
-
 inspec
 
 test-kitchen
@@ -22,7 +20,6 @@ kitchen-ansible
 
 kitchen-ansiblepush
 
-PyPI
 
 [pywinrm](https://pypi.python.org/pypi/pywinrm)
 
