@@ -14,6 +14,8 @@ platforms:
       username: vagrant
       password: vagrant
       provision: true
+    transport:
+      name: ssh
 {% elif cookiecutter.os_family == 'debian' -%}
   - name: debian
     driver_config:
@@ -24,6 +26,8 @@ platforms:
       username: vagrant
       password: vagrant
       provision: true
+    transport:
+      name: ssh
 {% elif cookiecutter.os_family == 'windows' -%}
   - name: win2012r2
     driver_config:
@@ -40,14 +44,9 @@ platforms:
         cpus: 2
         memory: 4096
       provision: false
-{% endif %}
-
-transport:
-{% if (cookiecutter.os_family == 'redhat') or (cookiecutter.os_family == 'debian') -%}
-  name: ssh
-{% elif cookiecutter.os_family == 'windows' -%}
-  name: winrm
-  winrm_transport: negotiate
+    transport:
+      name: winrm
+      winrm_transport: negotiate
 {% endif %}
 
 provisioner:

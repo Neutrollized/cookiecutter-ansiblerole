@@ -24,6 +24,10 @@ PyPI
 
 [pywinrm](https://pypi.python.org/pypi/pywinrm)
 
-### Documentation
+### HOW-TO
+
+cookiecutter https://github.com/Neutrollized/cookiecutter-ansiblerole
+
+#### Notes
 
 Acceptable `os_family` values would be: `redhat`, `debian`, and `windows`
