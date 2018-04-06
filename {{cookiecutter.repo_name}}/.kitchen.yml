@@ -1,5 +1,5 @@
 ---
-{% set rand_winrm_port = {{ range(55986, 59986) | random }} %}
+{% set rand_winrm_port = "{{ range(55986, 59986) | random }}" -%}
 driver:
   name: vagrant
   gui: false
