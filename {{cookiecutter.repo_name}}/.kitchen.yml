@@ -1,5 +1,5 @@
 ---
-<% winrm_port=rand(55986..59986) -%>
+<% winrm_port=rand(55986..59986) %>
 #{% set winrm_port = range(55986, 59986) | random -%}
 driver:
   name: vagrant
