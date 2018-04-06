@@ -1,6 +1,7 @@
 ---
+{% if cookiecutter.os_family == 'windows' -%}
 <% winrm_port=rand(55986..59986) %>
-#{% set winrm_port = range(55986, 59986) | random -%}
+{% endif %}
 driver:
   name: vagrant
   gui: false
@@ -41,9 +42,7 @@ platforms:
       password: packer
       network:
         - ["forwarded_port", {guest: 5986, host: <%= winrm_port %>}]
-#        - ["forwarded_port", {guest: 5986, host: {{ winrm_port }}}]
       port: <%= winrm_port %>
-#      port: {{ winrm_port }}
       customize:
         cpus: 2
         memory: 4096
@@ -72,7 +71,6 @@ provisioner:
   host_key_checking: false
   ansible_connection: winrm
   ansible_port: <%= winrm_port %>
-#  ansible_port: {{ winrm_port }}
   generate_inv: true
   use_instance_name: false
   chef_bootstrap_url: nil
