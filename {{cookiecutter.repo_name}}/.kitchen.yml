@@ -1,6 +1,6 @@
 ---
 {% if cookiecutter.os_family == 'windows' -%}
-<% winrm_port=rand(55986..59986) %>
+{% winrm_port=rand(55986..59986) %}
 {% endif %}
 driver:
   name: vagrant
@@ -41,7 +41,7 @@ platforms:
       username: packer
       password: packer
       network:
-        - ["forwarded_port", {guest: 5986, host: <%= winrm_port %>}]
+        - ["forwarded_port", {guest: 5986, host: {%= winrm_port %}}]
       port: <%= winrm_port %>
       customize:
         cpus: 2
