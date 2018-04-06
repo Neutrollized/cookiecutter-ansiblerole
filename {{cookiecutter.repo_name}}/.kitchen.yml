@@ -67,7 +67,7 @@ provisioner:
   diff: true
   host_key_checking: false
   ansible_connection: winrm
-  ansible_port: cookiecutter.rand_winrm_port
+  ansible_port: {{ os.environ["rand_winrm_port"] }}
   generate_inv: true
   use_instance_name: false
   chef_bootstrap_url: nil
