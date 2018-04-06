@@ -3,5 +3,6 @@
   "os_family": "redhat",
   "maintainer": "Glen Yu",
   "email": "glen.yu@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "rand_winrm_port": "55986"
 }
