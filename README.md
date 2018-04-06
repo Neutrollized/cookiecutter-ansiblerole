@@ -41,3 +41,5 @@ license [MIT]:
 #### Notes
 
 Acceptable `os_family` values would be: `redhat`, `debian`, and `windows`
+
+For Windows: .kitchen.yml file will have a host winrm port randomly generated so you won't encounter port conflicts when trying to do multiple kitchen testing at the same time

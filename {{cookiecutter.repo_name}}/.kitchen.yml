@@ -1,5 +1,5 @@
 ---
-{% set rand_winrm_port = range(55986, 59986) | random -%}
+{% set winrm_port = range(55986, 59986) | random -%}
 driver:
   name: vagrant
   gui: false
@@ -39,8 +39,8 @@ platforms:
       username: packer
       password: packer
       network:
-        - ["forwarded_port", {guest: 5986, host: {{ rand_winrm_port }}}]
-      port: {{ rand_winrm_port }}
+        - ["forwarded_port", {guest: 5986, host: {{ winrm_port }}}]
+      port: {{ winrm_port }}
       customize:
         cpus: 2
         memory: 4096
@@ -68,7 +68,7 @@ provisioner:
   diff: true
   host_key_checking: false
   ansible_connection: winrm
-  ansible_port: {{ rand_winrm_port }}
+  ansible_port: {{ winrm_port }}
   generate_inv: true
   use_instance_name: false
   chef_bootstrap_url: nil
