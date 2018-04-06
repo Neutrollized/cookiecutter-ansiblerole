@@ -39,7 +39,7 @@ platforms:
       password: packer
       network:
         - ["forwarded_port", {guest: 5986, host: 55986}]
-      port: os.environ["winrm_host_port"]
+      port: {{ cookiecutter.rand_winrm_port }}
       customize:
         cpus: 2
         memory: 4096
@@ -67,7 +67,7 @@ provisioner:
   diff: true
   host_key_checking: false
   ansible_connection: winrm
-  ansible_port: 55986
+  ansible_port: cookiecutter.rand_winrm_port
   generate_inv: true
   use_instance_name: false
   chef_bootstrap_url: nil
