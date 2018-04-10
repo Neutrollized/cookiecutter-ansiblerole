@@ -7,7 +7,7 @@ driver:
   gui: false
 
 platforms:
-{% if cookiecutter.os_family == 'redhat' -%}
+{% if cookiecutter.os_family == 'redhat' %}
   - name: rhel
     driver_config:
       box: rhel
@@ -19,7 +19,7 @@ platforms:
       provision: true
     transport:
       name: ssh
-{% elif cookiecutter.os_family == 'debian' -%}
+{% elif cookiecutter.os_family == 'debian' %}
   - name: debian
     driver_config:
       box: debian
@@ -31,7 +31,7 @@ platforms:
       provision: true
     transport:
       name: ssh
-{% elif cookiecutter.os_family == 'windows' -%}
+{% elif cookiecutter.os_family == 'windows' %}
   - name: win2012r2
     driver_config:
       box: win2012r2
@@ -53,7 +53,7 @@ platforms:
 {% endif %}
 
 provisioner:
-{% if (cookiecutter.os_family == 'redhat') or (cookiecutter.os_family == 'debian') -%}
+{% if (cookiecutter.os_family == 'redhat') or (cookiecutter.os_family == 'debian') %}
   name: ansible_playbook
   hosts: localhost
   ansible_connection: local
@@ -61,7 +61,7 @@ provisioner:
   ansible_diff: true
   ansible_verbosity: 3
   require_chef_for_busser: false
-{% elif cookiecutter.os_family == 'windows' -%}
+{% elif cookiecutter.os_family == 'windows' %}
   name: ansible_push
   ansible_config: test/ansible.cfg
   playbook: test/integration/default/default.yml
