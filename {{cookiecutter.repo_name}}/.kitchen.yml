@@ -81,8 +81,6 @@ provisioner:
 
 verifier:
   name: inspec
-  inspec_tests:
-    - test/integration/default/controls/{{ cookiecutter.repo_name }}_spec.rb
   format: junit
   output: "%{platform}_%{suite}_inspec.xml"
 
