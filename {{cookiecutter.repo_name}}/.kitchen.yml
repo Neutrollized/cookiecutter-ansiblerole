@@ -35,6 +35,7 @@ platforms:
 {% elif cookiecutter.os_family == 'windows' -%}
 platforms:
   - name: win2012r2
+    os_type: windows
     driver_config:
       box: win2012r2
       box_url: ## YOUR VAGRANT BOX DOWNLOAD URL HERE ###
